@@ -1,120 +1,112 @@
-<!-- THIS PART IS THE ONLY CUSTOM JS IN THIS WEBSITE, SEARCH NOWHERE ELSE-->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // 04 Initialize the state object when the document is fully loaded
-    const state = initializeState();
+<!-- THIS PART IS THE ONLY CUSTOM CSS IN THIS WEBSITE, SEARCH NOWHERE ELSE-->
+<style>
+  /* Main container setup for flex layout */
+  .checkbox-wrapper {
+    display: flex;
+    /* Enables flexbox layout */
+    justify-content: space-between;
+    /* Evenly spaces the two columns */
+    width: 100%;
+    /* Ensures the wrapper takes full width */
+  }
 
-    // Attach event listeners to all checkboxes
-    document.querySelectorAll('.newcheckbox').forEach(checkbox => {
-      checkbox.addEventListener('change', handleCheckboxChange);
-    });
+  /* Styles for each column to maintain equal space and alignment */
+  .checkbox-wrapper>div {
+    flex: 1;
+    /* Each child div takes equal space */
+    padding: 5px 15px;
+    /* Padding inside each column, adjusted for space between columns */
+    display: flex;
+    flex-direction: column;
+    /* Aligns the content vertically */
+    align-items: center;
+    /* Centers the content horizontally */
+    box-sizing: border-box;
+    /* Ensures padding is included in the width calculation */
+  }
 
-    // Apply initial filters based on the default state
-    applyFilters();
+  /* Styling for checkbox groups */
+  .newCheckbox-group {
+    display: flex;
+    justify-content: center;
+    /* Centers checkboxes horizontally */
+    align-items: center;
+    /* Centers checkboxes vertically */
+    width: 100%;
+    /* Ensures the group uses the full width of its parent */
+    margin-bottom: 10px;
+    /* Adds space below each group */
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    border-radius: 5px;
+  }
 
-    // Function to initialize the state object for all checkbox groups
-    function initializeState() {
-      const initialState = {};
-      document.querySelectorAll('.newcheckbox').forEach(checkbox => {
-        const group = checkbox.getAttribute('data-group');
-        // Create a new set for each group if it doesn't already exist
-        if (!initialState[group]) {
-          initialState[group] = new Set();
-        }
-      });
-      return initialState; // Return the initialized state
+  /* Hidden checkbox input */
+  .newCheckbox-group input[type="checkbox"] {
+    display: none;
+  }
+
+  /* Label styling, providing visual feedback and improved aesthetics */
+  .newCheckbox-group label {
+    display: flex;
+    /* Ensure label is a flex container */
+    justify-content: center;
+    /* Centers content horizontally within the label */
+    align-items: center;
+    /* Centers content vertically within the label */
+    margin-right: 2px;
+    /* Space between labels */
+    flex-grow: 1;
+    /* Allows labels to fill the space evenly */
+    padding: 5px 5px;
+    border: 1px solid #666666;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+  }
+
+  /* Rounded corners for the first and last labels */
+  .newCheckbox-group label:first-of-type {
+    border-radius: 5px 0 0 5px;
+    /* Rounded corners for the first element */
+  }
+
+  .newCheckbox-group label:last-of-type {
+    border-radius: 0 5px 5px 0;
+    /* Rounded corners for the last element */
+  }
+
+  /* Styles for checked labels */
+  .newCheckbox-group input[type="checkbox"]:checked+label {
+    background-color: #FFCC00;
+    color: white;
+  }
+
+  /* Hover effect for labels */
+  .newCheckbox-group label:hover {
+    background-color: #e0e0e0;
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .checkbox-wrapper {
+      flex-direction: column;
+      /* Stack columns vertically on smaller screens */
     }
 
-    // Function to handle changes to any checkbox
-    function handleCheckboxChange(event) {
-      const group = event.target.getAttribute('data-group'); // Get the group of the changed checkbox
-      const value = event.target.value; // Get the value of the changed checkbox
-      const checked = event.target.checked; // Check if the checkbox is checked or unchecked
-
-      console.log(`Checkbox changed: Group=${group}, Value=${value}, Checked=${checked}`);
-
-      // Update the state and apply filters based on the new state
-      updateState(group, value, checked);
-      applyFilters();
+    .checkbox-wrapper>div {
+      width: 100%;
+      /* Each column takes full width on small screens */
+      padding: 5px;
+      /* Adjust padding for smaller screens */
     }
+  }
 
-    // Function to update the state object based on checkbox changes
-    function updateState(group, value, checked) {
-      if (checked) {
-        state[group].add(value); // Add the value to the group's set if checked
-      } else {
-        state[group].delete(value); // Remove the value from the group's set if unchecked
-      }
-      console.log('Updated state:', state);
-    }
+  /* Hidden elements utility class */
+  .hidden {
+    display: none;
+  }
+</style>
 
-    // Function to apply filters to all items within the wrapper
-    function applyFilters() {
-      // Select all elements within the wrapper section
-      const items = Array.from(document.querySelector('.wrapper section').children);
-
-      console.log('Applying filters to items:', items);
-
-      // Iterate over each item and determine its visibility
-      items.forEach(item => {
-        const shouldShow = shouldItemBeVisible(item); // Check if the item should be visible
-        console.log(`Item ${item.outerHTML} should be ${shouldShow ? 'visible' : 'hidden'}`);
-        updateItemVisibility(item, shouldShow); // Update the item's visibility based on the result
-      });
-    }
-
-    function shouldItemBeVisible(item) {
-      // Check every group in the state object
-      return Object.keys(state).every(group => {
-        const groupSet = state[group];
-
-        // Debugging log
-        console.log(`Checking group: ${group}, state: ${Array.from(groupSet)}`);
-
-        // If no checkboxes are selected in the group, skip this group
-        if (groupSet.size === 0) return true;
-
-        // Identify all possible classes for the group
-        const groupClasses = Array.from(document.querySelectorAll(`.newcheckbox[data-group="${group}"]`))
-          .map(checkbox => checkbox.value);
-
-        // Check if the item has any class from the group's possible classes
-        const itemHasGroupClass = groupClasses.some(cls => item.classList.contains(cls));
-
-        // Debugging log
-        console.log(`Item ${item.outerHTML} has group class for ${group}: ${itemHasGroupClass}`);
-
-        // If the item has no relevant class for this group, it should be visible
-        if (!itemHasGroupClass) return true;
-
-        // If the item has a relevant class, check if it matches any selected value
-        const itemMatchesSelected = Array.from(groupSet).some(cls => item.classList.contains(cls));
-
-        // Debugging log
-        console.log(`Item ${item.outerHTML} matches selected value in ${group}: ${itemMatchesSelected}`);
-
-        return itemMatchesSelected;
-      });
-    }
-
-
-
-
-
-    // Function to update the visibility of an item
-    function updateItemVisibility(item, shouldShow) {
-      if (shouldShow) {
-        item.classList.remove('hidden'); // Remove the 'hidden' class to show the item
-      } else {
-        item.classList.add('hidden'); // Add the 'hidden' class to hide the item
-      }
-    }
-
-    // Additional styling for navigation unordered lists
-    const navUls = document.querySelectorAll('.wrapper nav > ul');
-    navUls.forEach(ul => {
-      ul.style.paddingLeft = '0'; // Remove padding from unordered lists in the navigation
-    });
-  });
-
-</script>
