@@ -1,14 +1,14 @@
---
+---
 layout: default
-title: ozet
+title: Ozet
 nav_order: 1
 parent: GG007
 ---
 
 
-## Özet
+## Ozet
 
-[Interactive Test Secimi Sayfasi](./interactive.html).
+
 
 **Bölümünüze ait kısaltmalar**
 **Bölümünüzde kullandığınız Türkçe uyarlamalar**

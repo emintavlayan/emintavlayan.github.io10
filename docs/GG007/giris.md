@@ -1,6 +1,6 @@
---
+---
 layout: default
-title: giris
+title: Giris
 nav_order: 2
 parent: GG007
 ---

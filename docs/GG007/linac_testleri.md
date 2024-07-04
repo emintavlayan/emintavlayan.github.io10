@@ -1,12 +1,9 @@
---
+---
 layout: default
-title: Linac Testleri
+title: Linak Testleri
 nav_order: 3
 parent: GG007
 ---
-
-
-
 
 ## 2. Lineer Hızlandırıcı Cihazlarının Kalite Kontrol ve Güvencesi Testleri
 
