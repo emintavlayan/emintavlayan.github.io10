@@ -39,5 +39,3 @@ nav_order: 6
 
 **Isocenter goruntuleme sistemleri ile bulunur** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies ante at dolor rhoncus pulvinar. Curabitur lorem mauris, hendrerit vitae feugiat a, tempus ac purus. 
 {: .yearly .oring}
-
-{% include customJs.html %}
