@@ -1,6 +1,6 @@
 ---
 layout: default
-title: UI Components
+title: Hakkimizda
 nav_order: 2
 ---
 
