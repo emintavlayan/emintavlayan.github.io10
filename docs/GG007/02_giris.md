@@ -5,6 +5,12 @@ nav_order: 2
 parent: GG007
 ---
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ## 1. Giriş
 
 **Tanımlama (Raporun gelişim süreci anlatılacak)**
