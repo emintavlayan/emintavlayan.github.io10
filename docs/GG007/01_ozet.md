@@ -8,12 +8,14 @@ parent: GG007
 
 ## Ozet
 
-
-
 **Bölümünüze ait kısaltmalar**
+
 **Bölümünüzde kullandığınız Türkçe uyarlamalar**
+
 **Şekil Tanımlamaları**
+
 **Tablo Tanımlamaları**
+
 **Yazar ad & soyad & unvan & kurum:**
 * Cemile Ceylan
 * Zeynep Özen
