@@ -6,12 +6,6 @@ nav_order: 6
 
 {% include checkBox.html %}
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
 ## **1.** Dozimetrik testler
 
 ### **1.1.** Output kontrolu
