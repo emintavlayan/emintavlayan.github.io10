@@ -17,7 +17,7 @@ parent: GG007
 ### 2.1. Güvenlik Testleri
 
 | Frequency | Type     | Description                       | Status     |
-|-----------|----------|-----------------------------------|------------|
+|:----------|:---------|:----------------------------------|:-----------|
 | Daily     | Safety   | Door closing safely               | Functional |
 | Daily     | Safety   | Audiovisual monitor(s)            | Functional |
 | Daily     | Safety   | Stereotactic interlocks (lockout) | Functional |
