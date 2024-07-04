@@ -43,18 +43,25 @@
       console.log('Updated state:', state);
     }
 
-    /* Function to apply filters to all items within the wrapper */
     function applyFilters() {
-      /* Select all elements within the wrapper section */
-      const items = Array.from(document.querySelector('main-content').children);
+      /* Select all elements within the main-content section */
+      const mainContent = document.querySelector('#main-content');
+      if (!mainContent) {
+        console.error('Main content not found');
+        return;
+      }
+      const items = Array.from(mainContent.children);
       console.log('Applying filters to items:', items);
       /* Iterate over each item and determine its visibility */
       items.forEach(item => {
-        const shouldShow = shouldItemBeVisible(item); /* Check if the item should be visible */
+        const shouldShow = shouldItemBeVisible(item);
+        /* Check if the item should be visible */
         console.log(`Item ${item.outerHTML} should be ${shouldShow ? 'visible' : 'hidden'}`);
-        updateItemVisibility(item, shouldShow); /* Update the item's visibility based on the result */
+        updateItemVisibility(item, shouldShow);
+        /* Update the item's visibility based on the result */
       });
     }
+
 
     function shouldItemBeVisible(item) {
       /* Check every group in the state object */
