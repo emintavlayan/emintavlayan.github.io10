@@ -2,7 +2,6 @@
 layout: default
 title: Interaktif
 nav_order: 6
-
 ---
 
 {% include checkBox.html %}
