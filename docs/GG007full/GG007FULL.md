@@ -3,8 +3,16 @@ layout: default
 title: GG007 full
 nav_order: 4
 has_children: false
+
 ---
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## Özet
 
