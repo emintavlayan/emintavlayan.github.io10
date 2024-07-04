@@ -4,28 +4,8 @@ title: Interaktif
 nav_order: 6
 
 ---
-<div class="checkbox-wrapper">
-<div>
-    <div>Frequency:</div>
-    <div class="newCheckbox-group">
-        <input type="checkbox" id="daily" value="daily" class="newcheckbox" data-group="frequency">
-        <label for="daily">Daily</label>
-        <input type="checkbox" id="monthly" value="monthly" class="newcheckbox" data-group="frequency">
-        <label for="monthly">Monthly</label>
-        <input type="checkbox" id="yearly" value="yearly" class="newcheckbox" data-group="frequency">
-        <label for="yearly">Yearly</label>
-    </div>
-</div>
-<div>
-    <div>Machine Type:</div>
-    <div class="newCheckbox-group">
-        <input type="checkbox" id="carm" value="carm" class="newcheckbox" data-group="machine_type">
-        <label for="carm">C-Arm</label>
-        <input type="checkbox" id="oring" value="oring" class="newcheckbox" data-group="machine_type">
-        <label for="oring">O-Ring</label>
-    </div>
-</div>
-</div>
+
+{% include checkBox.html %}
 
 ## **1.** Dozimetrik testler
 
@@ -60,4 +40,4 @@ nav_order: 6
 **Isocenter goruntuleme sistemleri ile bulunur** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies ante at dolor rhoncus pulvinar. Curabitur lorem mauris, hendrerit vitae feugiat a, tempus ac purus. 
 {: .yearly .oring}
 
-[back](./)
+{% include customJs.html %}

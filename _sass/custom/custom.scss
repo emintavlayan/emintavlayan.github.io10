@@ -1,0 +1,108 @@
+/* Main container setup for flex layout */
+.checkbox-wrapper {
+display: flex;
+/* Enables flexbox layout */
+justify-content: space-between;
+/* Evenly spaces the two columns */
+width: 100%;
+/* Ensures the wrapper takes full width */
+}
+
+/* Styles for each column to maintain equal space and alignment */
+.checkbox-wrapper>div {
+flex: 1;
+/* Each child div takes equal space */
+padding: 5px 15px;
+/* Padding inside each column, adjusted for space between columns */
+display: flex;
+flex-direction: column;
+/* Aligns the content vertically */
+align-items: center;
+/* Centers the content horizontally */
+box-sizing: border-box;
+/* Ensures padding is included in the width calculation */
+}
+
+/* Styling for checkbox groups */
+.newCheckbox-group {
+display: flex;
+justify-content: center;
+/* Centers checkboxes horizontally */
+align-items: center;
+/* Centers checkboxes vertically */
+width: 100%;
+/* Ensures the group uses the full width of its parent */
+margin-bottom: 10px;
+/* Adds space below each group */
+/* border: 1px solid #ccc; */
+padding: 10px;
+border-radius: 5px;
+}
+
+/* Hidden checkbox input */
+.newCheckbox-group input[type="checkbox"] {
+display: none;
+}
+
+/* Label styling, providing visual feedback and improved aesthetics */
+.newCheckbox-group label {
+    display: flex;
+    /* Ensure label is a flex container */
+    justify-content: center;
+    /* Centers content horizontally within the label */
+    align-items: center;
+    /* Centers content vertically within the label */
+    margin-right: 2px;
+    /* Space between labels */
+    flex-grow: 1;
+    /* Allows labels to fill the space evenly */
+    padding: 5px 5px;
+    border: 1px solid #666666;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+}
+
+/* Rounded corners for the first and last labels */
+    .newCheckbox-group label:first-of-type {
+    border-radius: 5px 0 0 5px;
+    /* Rounded corners for the first element */
+}
+
+.newCheckbox-group label:last-of-type {
+    border-radius: 0 5px 5px 0;
+    /* Rounded corners for the last element */
+}
+
+/* Styles for checked labels */
+    .newCheckbox-group input[type="checkbox"]:checked+label {
+    background-color: #FFCC00;
+    color: white;
+}
+
+/* Hover effect for labels */
+    .newCheckbox-group label:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .checkbox-wrapper {
+        flex-direction: column;
+        /* Stack columns vertically on smaller screens */
+    }
+
+    .checkbox-wrapper>div {
+        width: 100%;
+        /* Each column takes full width on small screens */
+        padding: 5px;
+        /* Adjust padding for smaller screens */
+    }
+}
+
+/* Hidden elements utility class */
+.hidden {
+    display: none;
+}
