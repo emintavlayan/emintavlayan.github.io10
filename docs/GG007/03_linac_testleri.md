@@ -4,7 +4,7 @@ title: Linak Testleri
 nav_order: 3
 parent: GG007
 ---
-
+# Linac testleri
 ## Table of contents
 {: .no_toc .text-delta }
 

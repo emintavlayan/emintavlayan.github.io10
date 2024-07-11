@@ -6,6 +6,8 @@ has_children: false
 
 ---
 
+# GGoo7 Full tek sayfada
+
 ## Table of contents
 {: .no_toc .text-delta }
 

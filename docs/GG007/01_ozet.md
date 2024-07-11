@@ -6,6 +6,8 @@ parent: GG007
 ---
 
 
+# Ozet
+
 ## Ozet
 
 **Bölümünüze ait kısaltmalar**
